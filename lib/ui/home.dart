@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:projeto/quizpage.dart';
 
-class homepage extends StatefulWidget {
+class Homepage extends StatefulWidget {
   @override
-  _homepageState createState() => _homepageState();
+  _HomepageState createState() => _HomepageState();
 }
 
-class _homepageState extends State<homepage> {
+class _HomepageState extends State<Homepage> {
 
   List<String> images = [
     "imagens/imagem.png",

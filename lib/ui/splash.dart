@@ -3,19 +3,19 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:projeto/home.dart';
 
-class splashscreen extends StatefulWidget {
+class Splashscreen extends StatefulWidget {
   @override
-  _splashscreenState createState() => _splashscreenState();
+  _SplashscreenState createState() => _SplashscreenState();
 }
 
-class _splashscreenState extends State<splashscreen> {
+class _SplashscreenState extends State<Splashscreen> {
 
   @override
   void initState(){
     super.initState();
     Timer(Duration(seconds: 3),(){
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => homepage(),
+        builder: (context) => Homepage(),
       ));
     });
   }
