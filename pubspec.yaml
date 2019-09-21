@@ -17,6 +17,10 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
+
+    sqflite: ^1.1.6
+    url_launcher: ^5.0.2
+    image_picker: ^0.6.0+3
   flutter:
     sdk: flutter
 

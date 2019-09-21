@@ -2,10 +2,11 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 
-class getjson extends StatelessWidget {
+class Getjson extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
+    print("teste");
+    /*return FutureBuilder(
       future: DefaultAssetBundle.of(context).loadString("assets/python.json"),
       builder: (context, snapshot){
         var mydata = json.decode(snapshot.data.toString());
@@ -18,19 +19,34 @@ class getjson extends StatelessWidget {
             ),
           );
         }else{
-          return quizpage();
+          return Quizpage();
         }
       },
-    );
+    );*/
+    return Quizpage();
   }
 }
 
-class quizpage extends StatefulWidget {
+class Quizpage extends StatefulWidget {
   @override
-  _quizpageState createState() => _quizpageState();
+  _QuizpageState createState() => _QuizpageState();
 }
 
-class _quizpageState extends State<quizpage> {
+class _QuizpageState extends State<Quizpage> {
+
+  int _grupValue = 1;
+
+  void onChanged(int value){
+    setState(() {
+      _grupValue = value;
+    });
+
+  }
+
+
+  void verificarResposta(int resposta){
+    print(resposta);
+  }
 
   Widget choicebutton(){
     return Padding(
@@ -56,39 +72,73 @@ class _quizpageState extends State<quizpage> {
 
   }
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          Expanded(
-            flex: 3,
-            child: Container(
-              padding: EdgeInsets.all(15.0),
-              alignment: Alignment.bottomLeft,
-              child: Text("alguma pergunta", style: TextStyle(fontSize: 18.0),),
+      appBar: AppBar(title: Text("QUIZ"),),
 
+      body: new Container(
+        padding: EdgeInsets.all(8.0),
+        child: new Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            new Text('A PRIMEIRA PERGUNTA',
+            style: new TextStyle(
+              fontSize: 20.0, fontWeight: FontWeight.bold
             ),
-          ),
-          Expanded(
-            flex: 6,
-            child: Container(
-             child: Column(
-               children: <Widget>[
-                 choicebutton(),
-               ],
-             ),
             ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Container(
-              decoration: BoxDecoration(
-                color:  Colors.teal,
-              ),
+            new Padding(
+              padding: new EdgeInsets.all(8.0),
             ),
-          ),
-        ],
+            new Divider(height: 5.0, color:  Colors.black),
+            new Padding(
+              padding: new EdgeInsets.all(8.0),
+            ),
+           /* new Text(
+              'teste01:', style: new TextStyle(
+              fontWeight: FontWeight.bold,fontSize: 18.0,),
+            ),*/
+            new Row(
+              //mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new Radio(value: 0, groupValue: _grupValue,
+                    onChanged: (int value){onChanged(value);}),
+                new Text("opção1 "),
+
+              ],
+            ),
+            new Row(
+              //mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new Radio(value: 1, groupValue: _grupValue,
+                    onChanged: (int value){onChanged(value);}),
+                new Text("opção2 "),
+
+              ],
+            ),
+            new Row(
+              //mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+
+                new Radio(value: 2, groupValue: _grupValue,
+                    onChanged: (int value){onChanged(value);}),
+                new Text("opção3 "),
+
+              ],
+            ),
+            new Row(
+              //mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new Radio(value: 3, groupValue: _grupValue,
+                    onChanged: (int value){onChanged(value);}),
+                new Text("opção4 "),
+
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

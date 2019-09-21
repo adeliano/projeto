@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projeto/quizpage.dart';
+import 'package:projeto/ui/quizpage.dart';
 
 class Homepage extends StatefulWidget {
   @override
@@ -9,7 +9,7 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
 
   List<String> images = [
-    "imagens/imagem.png",
+    "images/imagem.png",
   ];
 
   Widget customcard(String langname, String image){
@@ -19,8 +19,8 @@ class _HomepageState extends State<Homepage> {
       ),
       child: InkWell(
         onTap: (){
-         Navigator.of(context).pushReplacement(MaterialPageRoute(
-           builder: (context) => getjson(),
+         Navigator.of(context).push(MaterialPageRoute(
+           builder: (context) => Getjson(),
          ));
         },
         child: Material(
